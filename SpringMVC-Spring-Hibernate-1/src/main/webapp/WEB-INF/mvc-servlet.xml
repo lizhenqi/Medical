@@ -5,6 +5,10 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!--applicationContext.xml中把Controller注解排除了，而后来又有需要的故得在这再次读取-->
+    <context:property-placeholder location="classpath:config.properties"/>
+
+
     <!--自动扫描-->
     <context:component-scan base-package="com.kaishengit.controller"/>
 
@@ -16,11 +20,26 @@
         <mvc:cache-control max-age="3600" cache-public="true"/>
     </mvc:resources>
 
+
+    <!--基于注解的Controller-->
+    <mvc:annotation-driven>
+        <!--1：url中支持带.的path变量（例如图片上传时候不加这它是默认把"点"后面的后缀去掉的 ）-->
+        <!--第二种解决办法2：直接 @RequestMapping(value = "/preview/{fileName：.+}")-->
+        <mvc:path-matching registered-suffixes-only="true"/>
+    </mvc:annotation-driven>
+
+
+
     <!--视图解析器-->
     <bean id="viewReso" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--文件上传解析-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000000000"/>
     </bean>
 
 

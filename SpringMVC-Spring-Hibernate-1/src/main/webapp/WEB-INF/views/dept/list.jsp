@@ -37,12 +37,50 @@
         </ul>
     </div>
 </div>
-
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span3" style="color: red;text-align: center">待定</div>
+        <div class="span12">
+
+            <div class="box">
+                <div class="box-header">
+                    <span class="title"><i class="fa fa-sitemap"></i> 科室列表</span>
+                    <ul class="unstyled inline pull-right">
+                        <li><a href="new-dept.html"><i class="fa fa-plus"></i> 新建</a></li>
+                    </ul>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th width="200">科室名称</th>
+                            <th width="200">负责人</th>
+                            <th>#</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>内科</th>
+                            <th>张晓明</th>
+                            <th>
+                                <a href="">修改</a>
+                                <a href="#">删除</a>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
     </div>
 </div>
+
+
+
+
+
 
 <script src="/static/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <script src="/static/bootstrap/js/bootstrap.js"></script>
