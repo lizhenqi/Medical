@@ -16,7 +16,7 @@ public class AccountController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String index() {
 
-        return "login";
+        return "/login";
     }
 
     @RequestMapping(value = "/home",method = RequestMethod.POST)
@@ -25,5 +25,7 @@ public class AccountController {
 
         return "/home";
     }
+
+
 
 }
