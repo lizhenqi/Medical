@@ -19,10 +19,20 @@ public class Account  implements Serializable{
     private String accountname;
     private Timestamp createtime;
     private Integer phonenumber;
+    private Boolean enable;
 
     @ManyToOne
     @JoinColumn(name = "roleid")
     private Role role;
+
+
+    public Boolean getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
+    }
 
     public Integer getId() {
         return id;
@@ -78,5 +88,19 @@ public class Account  implements Serializable{
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", accountname='" + accountname + '\'' +
+                ", createtime=" + createtime +
+                ", phonenumber=" + phonenumber +
+                ", enable=" + enable +
+                ", role=" + role +
+                '}';
     }
 }

@@ -1,5 +1,7 @@
 package com.kaishengit.dao;
 
+import com.kaishengit.pojo.Account;
+import com.kaishengit.pojo.Dept;
 import com.kaishengit.util.Page;
 import com.kaishengit.util.SearchParam;
 import org.hibernate.Criteria;
@@ -60,5 +62,12 @@ public class BaseDao<T,PK extends Serializable> {
     public void deleteById(PK id){
         getSession().delete(findById(id));
     }
+
+
+
+
+
+
+
 
 }

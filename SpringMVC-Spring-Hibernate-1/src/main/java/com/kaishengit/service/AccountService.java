@@ -21,6 +21,12 @@ public class AccountService {
         return accountDao.findById(id);
     }
 
+    //    按账户查询
+    public Account findByUsername(String username){
+        return accountDao.findByUsername(username);
+    }
+
+
 
 
 }
