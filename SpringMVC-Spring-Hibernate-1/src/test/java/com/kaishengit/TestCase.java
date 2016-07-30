@@ -14,6 +14,7 @@ import javax.inject.Inject;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class TestCase {
+
     @Inject
     private AccountService accountService;
 
