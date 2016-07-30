@@ -1,14 +1,10 @@
 package com.kaishengit.dao;
 
-import com.kaishengit.pojo.Account;
-import com.kaishengit.pojo.Dept;
-import com.kaishengit.util.Page;
-import com.kaishengit.util.SearchParam;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.*;
-import org.hibernate.transform.ResultTransformer;
 
 import javax.inject.Inject;
 import java.io.Serializable;

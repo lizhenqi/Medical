@@ -32,7 +32,6 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-
     <!--shiro（安全框架）过滤器-->
     <filter>
         <!--这个名字必须和applicationContext-shiro.xml中的bean的名字一样。-->
@@ -43,7 +42,6 @@
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
 
 
 

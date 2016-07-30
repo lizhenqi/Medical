@@ -3,21 +3,20 @@ package com.kaishengit;
 import com.kaishengit.dao.AccountLogDao;
 import com.kaishengit.pojo.Account;
 import com.kaishengit.pojo.Dept;
-import com.kaishengit.service.AccountLogService;
-import com.kaishengit.service.AccountService;
-import com.kaishengit.service.DeptService;
-import com.kaishengit.service.DiseaseService;
-import com.kaishengit.util.ShiroUtil;
-import org.hibernate.SessionFactory;
+import com.kaishengit.pojo.Insurance;
+import com.kaishengit.pojo.Patient;
+import com.kaishengit.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
-import javax.naming.ldap.PagedResultsControl;
 import java.util.List;
+
+/**
+ * Created by Administrator on 2016/7/30.
+ */
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
@@ -39,13 +38,19 @@ public class TestCase {
     private AccountLogService accountLogService;
 
     //    测试Account通过id查询
+    private InsuranceService insuranceService;
+
+    @Inject
+    private PatientService patientService;
+
+
     @Test
     public void test() {
         Account account = accountService.findById(1);
         System.out.println(account.getPassword());
     }
 
-//    测试Account通过username查询
+
     @Test
     public void testFindByusername() {
         Account account=accountService.findByUsername("admin");
@@ -60,7 +65,7 @@ public class TestCase {
         }
     }
 
-//    查询角色
+    //    查询角色
     @Test
     public void testFindRolename() {
         Account account=accountService.findByUsername("admin");
@@ -73,4 +78,19 @@ public class TestCase {
     }
 
 
+    @Test
+    public void test1() {
+        List<Insurance> insurances = insuranceService.findAll();
+        for (Insurance insurance : insurances) {
+            System.out.println(insurance.getInsurancename());
+        }
+    }
+
+    @Test
+    public void tet2() {
+        List<Patient> patients = patientService.findAll();
+        for (Patient patients1 : patients) {
+            System.out.println(patients1);
+        }
+    }
 }

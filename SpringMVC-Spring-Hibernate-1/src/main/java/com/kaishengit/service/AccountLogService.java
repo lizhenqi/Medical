@@ -4,10 +4,10 @@ import com.kaishengit.dao.AccountLogDao;
 import com.kaishengit.pojo.AccountLog;
 import com.kaishengit.util.ShiroUtil;
 import org.joda.time.DateTime;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -34,8 +34,8 @@ public class AccountLogService {
         accountLog.setLoginip(ip);
 //        accountLog.setLogintime(DateTime.now().toString("yyyy:MM:dd HH:mm"));
         accountLog.getAccount().setId(ShiroUtil.getCurrentUserId());
-        accountLogDao.save(accountLog);
 
+        accountLogDao.save(accountLog);
     }
 
 

@@ -5,7 +5,7 @@ import com.kaishengit.pojo.Disease;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**

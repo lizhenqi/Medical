@@ -29,7 +29,6 @@ public class ShiroUtil {
      */
 //判断是否是某种jiaose
     public static boolean isAdmin(){
-
         return getCurrentUser().getRole().getRolename().equals("管理员");
     }
     public static boolean isEmployee(){

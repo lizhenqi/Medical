@@ -45,28 +45,29 @@ public class AccountController {
             subject.logout();
 //          如果用户已经登录过了，再次登录，就先退出之前的账号。
         }
-       try {
-           UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
+        try {
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
 
-           subject.login(usernamePasswordToken);//login()这个方法在执行的时候会自动调用ShiroRealm实现类的验证方法。
+            subject.login(usernamePasswordToken);//login()这个方法在执行的时候会自动调用ShiroRealm实现类的验证方法。
 
-           String ip= ServletUtil.getRemoteIp(request);//对上面的改进使其ip为127.0.0.1
-           accountLogService.saveLog(ip);
+            String ip= ServletUtil.getRemoteIp(request);//对上面的改进使其ip为127.0.0.1
 
-           return "redirect:/home";
-       }catch(LockedAccountException e){
+            accountLogService.saveLog(ip);//TODO 保存日志待定
 
-           redirectAttributes.addFlashAttribute("message",new FlashMessage(FlashMessage.STATE_ERROR,"该账户已被禁用！"));
+            return "redirect:/home";
+        }catch(LockedAccountException e){
 
-       }catch (AuthenticationException e){
+            redirectAttributes.addFlashAttribute("message",new FlashMessage(FlashMessage.STATE_ERROR,"该账户已被禁用！"));
+
+        }catch (AuthenticationException e){
 //            AuthenticationException这个异常是所有验证异常的父类，故放在最后
-           redirectAttributes.addFlashAttribute("message",new FlashMessage(FlashMessage.STATE_ERROR,"账号或是密码错误！"));
-       }
+            redirectAttributes.addFlashAttribute("message",new FlashMessage(FlashMessage.STATE_ERROR,"账号或是密码错误！"));
+        }
         return "redirect:/login";
     }
 
 
-//    首页
+    //    首页
     @RequestMapping(value = "/home",method = RequestMethod.GET)
     public String home(){
 

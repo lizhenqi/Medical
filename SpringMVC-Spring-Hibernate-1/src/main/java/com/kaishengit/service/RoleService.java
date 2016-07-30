@@ -3,11 +3,11 @@ package com.kaishengit.service;
 import com.kaishengit.dao.RoleDao;
 import com.kaishengit.pojo.Account;
 import com.kaishengit.pojo.Role;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.PrimaryKeyJoinColumn;
-import javax.transaction.Transactional;
 
 /**
  * Created by Administrator on 2016/7/30.

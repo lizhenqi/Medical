@@ -23,8 +23,8 @@ public class ShiroRealm extends AuthorizingRealm {
     private RoleService roleService;
 
     /**
-     * 验证用户是否具有某项权限
      *
+     *验证用户是否具有某项权限
 
      */
 
