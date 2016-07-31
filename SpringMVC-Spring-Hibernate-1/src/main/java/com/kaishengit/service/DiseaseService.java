@@ -20,8 +20,7 @@ public class DiseaseService {
 
 //   查询
     public List<Disease> findAllDisease(){
-        diseaseDao.findAll();
-        return null;
+       return diseaseDao.findAll();
     }
 
 //保存病种

@@ -5,11 +5,13 @@ com\kaishengit\dao\DeptDao.class
 com\kaishengit\util\Page.class
 com\kaishengit\dao\AccountDao.class
 com\kaishengit\service\DiseaseService.class
+com\kaishengit\exception\NotFoundException.class
 com\kaishengit\controller\AdminController.class
 com\kaishengit\util\FlashMessage.class
 com\kaishengit\dao\RoleDao.class
 com\kaishengit\service\RoleService.class
 com\kaishengit\pojo\Patient.class
+com\kaishengit\exception\ForbiddenException.class
 com\kaishengit\pojo\Role.class
 com\kaishengit\pojo\Insurance.class
 com\kaishengit\util\ServletUtil.class

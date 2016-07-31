@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,15 +26,17 @@
             </span>
                 </div>
                 <div class="box-body form">
-                    <form action="">
+                    <form action="/disease/new" method="post">
                         <label>疾病名称</label>
-                        <input type="text">
+                        <input type="text" name="entityname">
                         <label>所属科室</label>
-                        <select id="ks">
-                            <option value=""></option>
-                            <option value="">内科</option>
-                            <option value="">外科</option>
-                        </select>
+                            <select id="ks" name="dept.id">
+                                <option value=""></option>
+                                <c:forEach items="${deptList}" var="depts">
+                                    <option value="${depts.id}">${depts.deptname}</option>
+                                </c:forEach>
+                            </select>
+
                         <div class="form-actions">
                             <button class="button button-flat-action button-pill">保存</button>
                         </div>

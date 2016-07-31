@@ -26,8 +26,9 @@
                         <input type="text" placeholder="疾病名称">
                         <select id="ks">
                             <option value=""></option>
-                            <option value="">内科</option>
-                            <option value="">外科</option>
+                            <c:forEach items="${deptList}" var="depts">
+                                <option value="${depts.id}">${depts.deptname}</option>
+                            </c:forEach>
                         </select>
                         <button class="button button-pill button-flat-primary"><i class="fa fa-search"></i> 搜索</button>
                     </form>
@@ -56,11 +57,11 @@
                         <c:forEach items="${diseaseList}" var="disease">
                             <tr>
                                 <td>${disease.entityname}</td>
-                                <td>${depts.dept.deptame}</td>
-                                <th>
+                                <td>${disease.dept.deptname}</td>
+                                <td>
                                     <a href="">修改</a>
                                     <a href="#">删除</a>
-                                </th>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

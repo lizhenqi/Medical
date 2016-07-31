@@ -1,19 +1,25 @@
 package com.kaishengit.controller;
 
 
+import com.kaishengit.exception.NotFoundException;
 import com.kaishengit.pojo.Account;
 import com.kaishengit.service.AccountLogService;
 import com.kaishengit.service.AccountService;
 import com.kaishengit.util.FlashMessage;
 import com.kaishengit.util.ServletUtil;
+import com.kaishengit.util.ShiroUtil;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.inject.Inject;
@@ -25,6 +31,8 @@ public class AccountController {
 
     @Inject
     private AccountLogService accountLogService;
+    @Inject
+    private AccountService accountService;
     /**
      * 登录（登录界面和提交验证）
      * @return
@@ -97,6 +105,61 @@ public class AccountController {
         redirectAttributes.addFlashAttribute("message",new FlashMessage("您已安全退出！"));
         return "redirect:/login";
     }
+
+
+    /**
+     * 修改密码
+     *
+     * @return
+     */
+    @RequestMapping(value = "/account/password", method = RequestMethod.GET)
+    public String setPassword() {
+
+        return "account/setPassword";
+    }
+    @RequestMapping(value = "/account/password", method = RequestMethod.POST)
+    @ResponseBody
+    public String savePassword(String password) {
+
+    accountService.changePassword(password);
+
+        return "success";
+    }
+
+
+    /**
+     * 验证旧密码（ajax调用）
+     *
+     * @return
+     */
+    @RequestMapping(value = "/account/validate/password", method = RequestMethod.GET)
+    @ResponseBody
+    public String validatePassword(@RequestHeader("X-Requested-With") String xRequestedwith, String oldPassword) {
+//        通过ajax调用防止暴露，ajax调用时候，通过调请求头X-Requested-With的值保证
+        if ("XMLHttpRequest".equals(xRequestedwith)) {
+            Account account = ShiroUtil.getCurrentUser();
+            if (account.getPassword().equals(oldPassword)) {
+                return "true";
+            }
+            return "false";
+        } else {
+            throw new NotFoundException();
+        }
+    }
+
+
+
+    //    个人资料
+    @RequestMapping(value = "/account/message",method = RequestMethod.GET)
+    public String message(Model model){
+
+        Account account = ShiroUtil.getCurrentUser();
+        model.addAttribute("account",account);
+
+        return "account/message";
+    }
+
+
 
 
 

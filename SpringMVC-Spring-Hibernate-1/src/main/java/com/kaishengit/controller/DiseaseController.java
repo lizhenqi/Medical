@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.inject.Inject;
-import javax.persistence.PrimaryKeyJoinColumn;
 import java.util.List;
 
 /**
@@ -40,11 +39,17 @@ public class DiseaseController {
 
     //新建
     @RequestMapping(value = "/disease/new",method = RequestMethod.GET)
-    public String New(){
+    public String deptNewOne(Model model){
+
+        List<Dept> deptList=deptService.findAll();
+        model.addAttribute("deptList",deptList);
+
+
         return "disease/new";
     }
     @RequestMapping(value = "/disease/new",method = RequestMethod.POST)
-    public String deptNew(Disease disease){
+    public String deptNewTwo(Disease disease){
+
         diseaseService.saveDiosease(disease);
 
 

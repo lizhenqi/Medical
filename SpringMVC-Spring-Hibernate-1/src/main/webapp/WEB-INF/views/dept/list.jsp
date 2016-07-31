@@ -30,7 +30,7 @@
                         <tr>
                             <th width="200">科室名称</th>
                             <th width="200">负责人</th>
-                            <th>#</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,10 @@
                             <tr>
                                 <td>${depts.deptname}</td>
                                 <td>${depts.person}</td>
-                                <td>#</td>
+                                <td>
+                                    <a href="#">修改</a>
+                                    <a href="#">删除</a>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

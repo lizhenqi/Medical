@@ -1,10 +1,7 @@
 package com.kaishengit;
 
 import com.kaishengit.dao.AccountLogDao;
-import com.kaishengit.pojo.Account;
-import com.kaishengit.pojo.Dept;
-import com.kaishengit.pojo.Insurance;
-import com.kaishengit.pojo.Patient;
+import com.kaishengit.pojo.*;
 import com.kaishengit.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -63,6 +60,13 @@ public class TestCase {
         for(Dept dept:deptList){
             System.out.println(dept.getPerson());
         }
+    }
+
+    @Test
+    public void testSaveDisease(){
+        Disease disease=new Disease();
+        disease.setEntityname("口腔科");
+        diseaseService.saveDiosease(disease);
     }
 
     //    查询角色
