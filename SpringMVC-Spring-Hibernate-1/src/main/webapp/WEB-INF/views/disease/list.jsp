@@ -59,8 +59,8 @@
                                 <td>${disease.entityname}</td>
                                 <td>${disease.dept.deptname}</td>
                                 <td>
-                                    <a href="">修改</a>
-                                    <a href="#">删除</a>
+                                    <a href="/disease/edit/${disease.id}">修改</a>
+                                    <a href="javascript:;" data="${disease.id}" class="delBtn">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -77,6 +77,21 @@
 
 <script src="/static/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <script src="/static/bootstrap/js/bootstrap.js"></script>
+
+<script>
+    <%--确认删除--%>
+    $(function () {
+        $(".delBtn").click(function () {
+            if (confirm("您确定要删除？")) {
+                var id = $(this).attr("data");
+                window.location.href = "/disease/del/" + id;
+            }
+        })
+
+
+    })
+
+</script>
 
 </body>
 </html>

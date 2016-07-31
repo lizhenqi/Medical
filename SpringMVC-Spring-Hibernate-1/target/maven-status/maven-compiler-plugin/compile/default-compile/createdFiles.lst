@@ -6,6 +6,7 @@ com\kaishengit\util\Page.class
 com\kaishengit\dao\AccountDao.class
 com\kaishengit\service\DiseaseService.class
 com\kaishengit\exception\NotFoundException.class
+com\kaishengit\controller\InsuranceController.class
 com\kaishengit\controller\AdminController.class
 com\kaishengit\util\FlashMessage.class
 com\kaishengit\dao\RoleDao.class

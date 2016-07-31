@@ -1,6 +1,7 @@
 package com.kaishengit.service;
 
 import com.kaishengit.dao.DiseaseDao;
+import com.kaishengit.pojo.Dept;
 import com.kaishengit.pojo.Disease;
 
 import javax.inject.Inject;
@@ -24,7 +25,18 @@ public class DiseaseService {
     }
 
 //保存病种
-    public void saveDiosease(Disease disease){
+    public void saveDisease(Disease disease){
          diseaseDao.save(disease);
     }
+
+    //    按id查询
+    public Disease findById(Integer id){
+        return diseaseDao.findById(id);
+    }
+
+    //    按id删除
+    public void deleteById(Integer id){
+        diseaseDao.deleteById(id);
+    }
+
 }

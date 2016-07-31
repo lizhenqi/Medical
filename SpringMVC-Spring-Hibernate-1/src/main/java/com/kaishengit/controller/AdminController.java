@@ -51,7 +51,7 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-//    修改
+//    修改(直接提交到/admin/new，它里面有save/update)
     @RequestMapping(value = "/admin/edit/{id:\\d+}", method = RequestMethod.GET)
     public String editOne(@PathVariable Integer id,Model model) {
         Account account=accountService.findById(id);

@@ -20,7 +20,7 @@
                        <ul class="dropdown-menu">
                            <li><a href="/dept"><i class="fa fa-sitemap"></i> 科室设置</a></li>
                            <li><a href="/disease"><i class="fa fa-medkit"></i> 病种设置</a></li>
-                           <li><a href=""><i class="fa fa-bars"></i> 医保类型设置</a></li>
+                           <li><a href="/insurance"><i class="fa fa-bars"></i> 医保类型设置</a></li>
                            <li><a href=""><i class="fa fa-child"></i> 患者状态设置</a></li>
                            <li class="divider"></li>
                            <li><a href="/admin"><i class="fa fa-user-md"></i> 账号设置</a></li>
